@@ -1,0 +1,22 @@
+{
+  "name": "Moe Kyaw Aung Portfolio",
+  "short_name": "MKA Portfolio",
+  "description": "Senior Android Developer Portfolio - Moe Kyaw Aung",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#333333",
+  "theme_color": "#333333",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_3_zqrhhr.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_3_zqrhhr.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
