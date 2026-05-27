@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Moe Kyaw Aung - Senior Android Developer with 12 years experience in Kotlin, Jetpack Compose, Firebase and Clean Architecture.">
+    <meta name="theme-color" content="#333333">
+    <title>Moe Kyaw Aung | Senior Android Developer</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_3_zqrhhr.webp">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --charcoal: #333333;
+            --gold: #d4a843;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #ffffff;
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        .glass {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 20px;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+            z-index: 2;
+            max-width: 900px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.12;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .glass-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 168, 67, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #c99a3a;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <a href="#" class="logo">Moe<span>Kyaw</span>Aung</a>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#apps">Apps</a></li>
+            <li><a href="#github">GitHub</a></li>
+            <li><a href="#lovable">Lovable</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button onclick="toggleTheme()" style="background: none; border: none; font-size: 1.4rem; cursor: pointer;">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+        <h1>⭐ MOE KYAW AUNG ⭐</h1>
+        <div class="tagline">Senior Android Developer</div>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
+            12 years of experience building secure, scalable, and elegant Android applications with Kotlin & Jetpack Compose.
+        </p>
+        
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#contact" class="btn-primary">Get In Touch</a>
+            <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="glass-card" style="padding: 14px 32px; text-decoration: none; color: var(--charcoal); font-weight: 600;">
+                View GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    <div class="glass-card" style="max-width: 850px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.15rem;">
+            Android Developer with nearly 12 years of hands-on experience building secure, scalable, and user-friendly mobile applications. 
+            Strong in Kotlin and modern Jetpack development (Compose, ViewModel, Room), Firebase integration, and REST API consumption.
+        </p>
+        <div style="margin-top: 2rem;">
+            <strong>Location:</strong> Tachileik, Myanmar 🇲🇲 ↔ Bangkok, Thailand 🇹🇭<br>
+            <strong>Languages:</strong> Burmese • English • Kotlin
+        </div>
+    </div>
+</section>
+
+<!-- Featured Apps -->
+<section id="apps" class="section">
+    <h2 class="section-title">Featured Applications</h2>
+    <div class="app-grid">
+        <div class="glass-card"><h4>📱 Social Dashboard</h4><p>Modern social analytics platform</p></div>
+        <div class="glass-card"><h4>📱 PWA App</h4><p>Progressive Web Application</p></div>
+        <div class="glass-card"><h4>📊 Admin Dashboard</h4><p>Enterprise admin panel</p></div>
+        <div class="glass-card"><h4>🎮 Game Collection</h4><p>Multiple mini-games</p></div>
+        <div class="glass-card"><h4>🎵 Music Player</h4><p>Beautiful audio experience</p></div>
+        <div class="glass-card"><h4>💬 Chat App</h4><p>Real-time messaging</p></div>
+        <div class="glass-card"><h4>🛒 E-commerce</h4><p>Full-featured store</p></div>
+        <div class="glass-card"><h4>💰 Money Tracker</h4><p>Personal finance app</p></div>
+        <div class="glass-card"><h4>🌤️ Weather App</h4><p>Advanced weather application</p></div>
+        <div class="glass-card"><h4>🎯 Video Player</h4><p>Professional media player</p></div>
+        <div class="glass-card"><h4>📝 Moe Translators</h4><p>AI Translation Tool</p></div>
+        <div class="glass-card"><h4>📆 Burmese Lunar Calendar</h4><p>Traditional calendar</p></div>
+    </div>
+</section>
+
+<!-- GitHub Section -->
+<section id="github" class="section">
+    <h2 class="section-title">GitHub Projects</h2>
+    <div class="glass-card">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+            <a href="https://github.com/moekyawaung-tech/video-player" target="_blank">🎯 Video Player</a>
+            <a href="https://github.com/moekyawaung-tech/social-dashboard" target="_blank">📱 Social Dashboard</a>
+            <a href="https://github.com/moekyawaung-tech/game-collection" target="_blank">🎮 Game Collection</a>
+            <a href="https://github.com/moekyawaung-tech/pwa-app" target="_blank">📱 PWA App</a>
+            <a href="https://github.com/moekyawaung-tech/Weather-app" target="_blank">🌤️ Weather App</a>
+            <a href="https://github.com/moekyawaung-tech/thailand-travel" target="_blank">🇹🇭 Thailand Travel</a>
+        </div>
+        <div style="margin-top: 1.5rem;">
+            <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" style="color: var(--gold); font-weight: 600;">View All 45+ Repositories →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="glass-card" style="max-width: 700px; margin: 0 auto;">
+        <form>
+            <input type="text" placeholder="Your Name" style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ddd; border-radius:12px;">
+            <input type="email" placeholder="Your Email" style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ddd; border-radius:12px;">
+            <textarea placeholder="Your Message" rows="6" style="width:100%; padding:1rem; margin-bottom:1.5rem; border:1px solid #ddd; border-radius:12px;"></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Moe Kyaw Aung — Senior Android Developer</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Tachileik, Myanmar ↔ Bangkok, Thailand | +95 9 889 000 889</p>
+</footer>
+
+<script>
+// Theme Toggle
+function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+    
+    if (body.style.background === 'rgb(51, 51, 51)') {
+        body.style.background = '#ffffff';
+        body.style.color = '#333333';
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    } else {
+        body.style.background = '#333333';
+        body.style.color = '#ffffff';
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+}
+
+// Mobile Menu
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+
+// Hero Canvas Animation
+function initHeroCanvas() {
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+    
+    let particles = [];
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+        }
+        
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+            if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+        }
+        
+        draw() {
+            ctx.fillStyle = '#d4a843';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+    
+    initParticles();
+    animate();
+}
+
+// PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registered successfully');
+            })
+            .catch(err => {
+                console.log('ServiceWorker registration failed');
+            });
+    });
+}
+
+// Initialize everything
+window.onload = function() {
+    initHeroCanvas();
+};
+</script>
+</body>
+</html>
