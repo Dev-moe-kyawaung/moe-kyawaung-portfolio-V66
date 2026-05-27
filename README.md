@@ -39,7 +39,7 @@ Professional multi-page portfolio website for **Moe Kyaw Aung**, a Senior Androi
 ## 📁 Project Structure
 
 ```
-moe-kyaw-aung-portfolio/
+moe-kyaw-aung-portfolio-V66/
 ├── index.html              # Main portfolio page
 ├── manifest.json           # PWA manifest
 ├── sw.js                   # Service Worker
@@ -58,7 +58,7 @@ moe-kyaw-aung-portfolio/
 
 1. Clone the repository
 ```bash
-git clone https://github.com/Dev-moe-kyawaung/moe-kyaw-aung-portfolio.git
+git clone https://github.com/Dev-moe-kyawaung/moe-kyaw-aung-portfolio-V66.git
 cd moe-kyaw-aung-portfolio
 ```
 
